@@ -4,7 +4,7 @@ $srv = "sqlserver";
 $opc = array("Database" => "wordle_db", "UID" => "sa", "PWD" => "12345Ab##");
 $con = sqlsrv_connect($srv, $opc) or die(print_r(sqlsrv_errors(), true));
 
-$sql = "select idPalabra,palabra,cast(fecha as varchar) as fecha from palabras";
+$sql = "select palabra,cast(fecha as varchar) as fecha from palabras";
 $res = sqlsrv_query($con, $sql);
 
 ?>
@@ -12,8 +12,8 @@ $res = sqlsrv_query($con, $sql);
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <title>Wordle Ricardo & Juan Luis</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <title>Palabras</title>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -23,12 +23,11 @@ $res = sqlsrv_query($con, $sql);
         <h3>Volver</h3>
     </a>
 
-    <div id="listadopalabras">
+    <div class="listado">
 
         <table>
 
             <tr>
-                <th>ID</th>
                 <th>PALABRA</th>
                 <th>FECHA</th>
             </tr>
@@ -42,7 +41,6 @@ $res = sqlsrv_query($con, $sql);
             } else {
                 while ($row = sqlsrv_fetch_array($res)) { ?>
                     <tr>
-                        <td><?php echo $row['idPalabra']; ?></td>
                         <td><?php echo $row['palabra']; ?></td>
                         <td><?php echo $row['fecha']; ?></td>
                     </tr>
@@ -55,8 +53,6 @@ $res = sqlsrv_query($con, $sql);
         </table>
 
     </div>
-
-    <a href='palabradehoy.php'>Ver palabra de hoy</a>
 
 </body>
 

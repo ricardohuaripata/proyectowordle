@@ -4,7 +4,7 @@ $srv = "sqlserver";
 $opc = array("Database" => "wordle_db", "UID" => "sa", "PWD" => "12345Ab##");
 $con = sqlsrv_connect($srv, $opc) or die(print_r(sqlsrv_errors(), true));
 
-$sql = "select * from jugadores";
+$sql = "select nick, numPartidas, mediaIntentos, aciertos from jugadores";
 $res = sqlsrv_query($con, $sql);
 
 ?>
@@ -14,8 +14,8 @@ $res = sqlsrv_query($con, $sql);
 
 <head>
 
-    <title>Wordle Ricardo & Juan Luis</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <title>Estadisticas</title>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -25,12 +25,11 @@ $res = sqlsrv_query($con, $sql);
         <h3>Volver</h3>
     </a>
 
-    <div id="listadopalabras">
+    <div class="listado">
 
         <table>
 
             <tr>
-                <th>ID</th>
                 <th>NICK</th>
                 <th>TOTAL PARTIDAS</th>
                 <th>MEDIA INTENTOS</th>
@@ -46,7 +45,6 @@ $res = sqlsrv_query($con, $sql);
             } else {
                 while ($row = sqlsrv_fetch_array($res)) { ?>
                     <tr>
-                        <td><?php echo $row['idJugador']; ?></td>
                         <td><?php echo $row['nick']; ?></td>
                         <td><?php echo $row['numPartidas']; ?></td>
                         <td><?php echo $row['mediaIntentos']; ?></td>

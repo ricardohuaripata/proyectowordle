@@ -1,7 +1,5 @@
-/*CSS INDEX - PRINCIPIO*/
-
 body {
-  background-color: rgb(40, 0, 60);
+  background-color: rgb(20, 20, 20);
   color: white;
 }
 
@@ -32,25 +30,22 @@ h1 {
   font-size: 35px;
   float: left;
   margin: 5px;
-  border: 2px solid #787c7e;
+  border: 2px solid rgb(140, 140, 140);
+  border-radius: 5px;
   text-align: center;
   text-transform: uppercase;
   color: white;
-  font: sans-serif;
   font-weight: bold;
 }
 .linea {
   width: 100%;
   float: left;
 }
-/*CSS INDEX - FIN*/
+/* STYLE INDEX - FIN*/
 
-#listadopalabras th,
+.listado th,
 td {
-  border: 1px solid white;
-  padding: 20px;
-}
-
-td:hover {
-  color: rgb(0, 255, 0);
+  text-align: center;
+  border: 1px solid rgb(160, 160, 160);
+  padding: 10px;
 }

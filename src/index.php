@@ -40,25 +40,18 @@ $res = sqlsrv_query($con, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Wordle</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
-    <ul>
-        <li>
-            <a href='listadopalabras.php'>
-                <h3>Listado de palabras</h3>
-            </a>
-        </li>
-        <li>
-            <a href='jugador_Estadisticas.php'>
-                <h3>Estadisticas de jugadores</h3>
-            </a>
-        </li>
-    </ul>
+
+    <a href='listadopalabras.php'>(Admin) Lista de palabras</a>
+    <br>
+    <a href='jugador_Estadisticas.php'>(Admin) Estadisticas de jugadores</a>
+
     <div class="wordle ">
-        <h1>WORDLE RICARDO & JUAN LUIS</h1>
+        <h1>Wordle</h1>
         <?php
 
         $contador = 1;
@@ -96,8 +89,7 @@ $res = sqlsrv_query($con, $sql);
         if ($palabrasIntentos > 6)
             echo "La palabra de hoy era '", $palabradehoy, "'";
         ?>
-
-        <form class="border p-3 form" method="post" action="./guardarintento.php">
+        <form method="post" action="./guardarintento.php">
             <div class="form-group">
                 <input type="text" name="palabra" id="palabra" class="form-control" maxlength="5" autofocus <?php
                                                                                                             if ($palabrasIntentos > 6)
